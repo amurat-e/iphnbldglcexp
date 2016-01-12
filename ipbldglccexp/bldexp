@@ -1,0 +1,6 @@
+export CLASSPATH=/Users/alimuratergin/jdeveloper/mywork/iphnbldglcexp/.adf:/Users/alimuratergin/jdeveloper/mywork/iphnbldglcexp/ipbldglccexp/classes:/Users/alimuratergin/jdeveloper/mywork/iphnbldglcexp/ipbldglccexp/jexcelapi/jxl.jar
+pgiris=/Users/alimuratergin/Downloads/export/export.xml
+pcikis=/Users/alimuratergin/Documents/bldglcexp.xls
+java -classpath $CLASSPATH  iphnbldexp $pgiris $pcikis
+# exit
+
