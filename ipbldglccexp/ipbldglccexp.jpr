@@ -157,10 +157,10 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
-            <value n="programArguments" v="export.xml output.xls"/>
+            <value n="programArguments" v="/Users/alimuratergin/Downloads/export/export.xml /Users/alimuratergin/Downloads/export/output.xls"/>
             <url n="runDirectoryURL" path="classes/"/>
             <url n="targetURL" path="src/iphnbldexp.java"/>
-            <value n="VMName" v=""/>
+            <value n="VMName" v="server"/>
          </hash>
       </hash>
       <list n="runConfigurationList">

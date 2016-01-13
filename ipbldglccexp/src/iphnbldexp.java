@@ -52,19 +52,19 @@ public class iphnbldexp {
             return atrval;
         }
     }
-   /* TÃ¼rkÃ§e karekterlerin unicode kaÅŸÄ±lÄ±klarÄ±
-    ÄŸ - \u011f
-    Äž - \u011e
-    Ä± - \u0131
-    Ä° - \u0130
-    Ã¶ - \u00f6
-    Ã– - \u00d6
-    Ã¼ - \u00fc
-    Ãœ - \u00dc
-    ÅŸ - \u015f
-    Åž - \u015e
-    Ã§ - \u00e7
-    Ã‡ - \u00c7
+   /* Turkish Unicode Charecters
+    ð - \u011f
+    Ð - \u011e
+    ý - \u0131
+    Ý - \u0130
+    ö - \u00f6
+    Ö - \u00d6
+    ü - \u00fc
+    Ü - \u00dc
+    þ - \u015f
+    Þ - \u015e
+    ç - \u00e7
+    Ç - \u00c7
     */
     
     private static String attrb_sourceName = "Sa\u011fl\u0131k";
@@ -102,7 +102,7 @@ public class iphnbldexp {
                 try {
                     dt = df.parse(aaa[0]);
                 } catch (ParseException e) {
-                    // TODO
+                    
                     e.printStackTrace();
                 }
                 WritableCellFormat dateFormat = new WritableCellFormat ();
@@ -121,13 +121,13 @@ public class iphnbldexp {
             
             workbook.write(); 
             workbook.close();
-            System.out.println(row+" adet kay\u0131t Yaz\u0131ld\u0131...");
+            System.out.println(row+" rows recorded...");
             
         } catch (IOException e) {
-            // TODO
+           
             e.printStackTrace();
         } catch (WriteException e) {
-            // TODO
+            
             e.printStackTrace();
         }
     }
@@ -182,7 +182,7 @@ public class iphnbldexp {
             doc = docBuilder.parse (new File(filexml));
             // normalize text representation
              doc.getDocumentElement ().normalize ();
-             System.out.println ("K\u00f6k elaman : " + 
+             System.out.println ("Root element : " + 
                   doc.getDocumentElement().getNodeName());
 
             NodeList nl = doc.getElementsByTagName(tag_record);
@@ -238,8 +238,9 @@ public class iphnbldexp {
   
                                // System.out.println(k+" "  + atr.atrname + " = " + atr.atrval);
                                  
-                                 /* Apple Saglik disa aktarilan verisinde 18-09-2015 ten sonra 6.attribute sourceVersion="9.0 olmus 
-                                  * Got kafalar 
+                                 /* This switch code for
+                                  * Apple health export file, After 18-09-2015  6th. attribute sourceVersion="9.0 inserted 
+                                  * old 6th. attribute escalete to 7th.  
                                   * */
                                  if (atr.atrname=="creationDate"){
                                     DateFormat dtf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z" );
@@ -307,33 +308,33 @@ public class iphnbldexp {
         int j = 0;
                
         System.out.println(dt.toString()+" AME(C), args["+args.length+"]");
-        System.out.println("iPhone Sa\u011fl\u0131k program\u0131 export.xml den output.xls cevirici...");
+        System.out.println("Extracts blood glucose values and dates from iPhone health application exported file (xml) to (xls) file...");
         
         if (args.length < 2)
         {
-          System.out.println("Yanl\u0131\u015f Kullan\u0131m Ba\u011fldat'tan D\u00f6ner...");
-          System.out.println("\u015foyleki : dosya_adi.xml");
+          System.out.println("Wrong Usage...");
+          System.out.println("java -classpath [class_paths] iphnbldexp [input_dir]/input_file.xml [output_dir]/output_file.xls");
           System.exit(-1);
         }    
         
         for ( j=0; j<args.length; j++){
       
-        if (j==0) System.out.println("Dosya Giri\u015f :"+args[j]+" ");
-        if (j==1) System.out.println("Dosya C\u0131k\u0131\u015f :"+args[j]+" ");
+        if (j==0) System.out.println("Input file :"+args[j]+" ");
+        if (j==1) System.out.println("Output file :"+args[j]+" ");
         }
         try {
-            System.out.println("Dosya :"+args[0]+ "\n <"+tag_record +" type=\""+attrb_type+"\" sourceName=\"" + attrb_sourceName + "\"... /> \nOkunuyor...");
+            System.out.println("File :"+args[0]+ "\n <"+tag_record +" type=\""+attrb_type+"\" sourceName=\"" + attrb_sourceName + "\"... /> \nReading...");
             bldData=ReadXML(args[0]);
-            System.out.println(args[1] + " yaz\u0131l\u0131yor...");
+            System.out.println(args[1] + " Writing...");
             toExcel(bldData,args[1]);
         } catch (SAXException e) {
-            // TODO
+            
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
-            // TODO
+            
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO
+            
             e.printStackTrace();
         }
         
